@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elektronik Temalı Bayram Mesajı</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #e8fff6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background:
+        linear-gradient(rgba(10, 18, 22, 0.95), rgba(10, 18, 22, 0.95)),
+        repeating-linear-gradient(
+          0deg,
+          rgba(0, 255, 170, 0.06) 0px,
+          rgba(0, 255, 170, 0.06) 1px,
+          transparent 1px,
+          transparent 40px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          rgba(0, 255, 170, 0.06) 0px,
+          rgba(0, 255, 170, 0.06) 1px,
+          transparent 1px,
+          transparent 40px
+        ),
+        #081014;
+    }
+
+    .container {
+      width: min(92vw, 780px);
+      padding: 28px;
+      border-radius: 24px;
+      background: rgba(8, 20, 24, 0.82);
+      border: 1px solid rgba(0, 255, 170, 0.18);
+      box-shadow: 0 0 30px rgba(0, 255, 170, 0.08);
+      backdrop-filter: blur(6px);
+      position: relative;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .header .small {
+      color: #7cf7c4;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      color: #ffd54f;
+      font-size: clamp(2rem, 5vw, 3.3rem);
+      line-height: 1.15;
+      margin-bottom: 12px;
+      text-shadow: 0 0 12px rgba(255, 213, 79, 0.18);
+    }
+
+    .header p {
+      color: #d8fff1;
+      font-size: clamp(1rem, 2.4vw, 1.15rem);
+      line-height: 1.7;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .ltspice-box {
+      margin: 28px auto 18px;
+      width: min(100%, 640px);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(170, 255, 220, 0.15);
+      box-shadow: inset 0 0 20px rgba(0, 255, 170, 0.03);
+    }
+
+    .ltspice-titlebar {
+      background: #d7dde3;
+      color: #1c2730;
+      padding: 10px 14px;
+      font-size: 0.95rem;
+      font-weight: bold;
+    }
+
+    .ltspice-window {
+      background:
+        radial-gradient(circle at center, rgba(0, 255, 170, 0.06), transparent 55%),
+        #111922;
+      padding: 24px 20px;
+      min-height: 260px;
+      position: relative;
+    }
+
+    .schematic {
+      width: 100%;
+      height: 230px;
+    }
+
+    .schematic text {
+      fill: #c5fff0;
+      font-size: 13px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .msg-panel {
+      margin-top: 20px;
+      padding: 18px;
+      border-radius: 14px;
+      background: rgba(0, 255, 170, 0.06);
+      border: 1px solid rgba(0, 255, 170, 0.12);
+    }
+
+    .msg-panel .line1 {
+      color: #9dffd9;
+      font-family: "Courier New", monospace;
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+
+    .msg-panel .line2 {
+      color: #ffffff;
+      font-size: clamp(1.1rem, 2.7vw, 1.35rem);
+      line-height: 1.7;
+    }
+
+    .highlight {
+      color: #ffd54f;
+      font-weight: bold;
+    }
+
+    .footer-note {
+      margin-top: 22px;
+      text-align: center;
+      color: #9acbbd;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .btns {
+      margin-top: 26px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: 0.25s ease;
+    }
+
+    .primary {
+      background: #00c781;
+      color: #04110c;
+      box-shadow: 0 0 20px rgba(0, 199, 129, 0.2);
+    }
+
+    .primary:hover {
+      transform: translateY(-2px);
+      background: #18d98f;
+    }
+
+    .secondary {
+      background: transparent;
+      color: #d7fff1;
+      border: 1px solid rgba(215, 255, 241, 0.22);
+    }
+
+    .secondary:hover {
+      background: rgba(255, 255, 255, 0.05);
+      transform: translateY(-2px);
+    }
+
+    .floating-dot {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: #ffd54f;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: float 5s infinite ease-in-out;
+    }
+
+    .dot1 { top: 12%; left: 8%; animation-delay: 0s; }
+    .dot2 { top: 20%; right: 10%; animation-delay: 1.2s; }
+    .dot3 { bottom: 18%; left: 12%; animation-delay: 2.2s; }
+    .dot4 { bottom: 12%; right: 15%; animation-delay: 0.7s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); opacity: 0.55; }
+      50% { transform: translateY(-12px); opacity: 1; }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 18px;
+        border-radius: 18px;
+      }
+
+      .ltspice-window {
+        padding: 16px 10px;
+      }
+
+      .schematic text {
+        font-size: 11px;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="floating-dot dot1"></div>
+  <div class="floating-dot dot2"></div>
+  <div class="floating-dot dot3"></div>
+  <div class="floating-dot dot4"></div>
+
+  <div class="container">
+    <div class="header">
+      <div class="small">LTspice Holiday Simulation</div>
+      <h1>Bayramınız Mübarek Olsun</h1>
+      <p>
+        Mutluluğunuz <span class="highlight">DC gibi sabit</span>,
+        neşeniz <span class="highlight">AC gibi sürekli</span>,
+        huzurunuz ise <span class="highlight">low-noise</span> olsun.
+      </p>
+    </div>
+
+    <div class="ltspice-box">
+      <div class="ltspice-titlebar">Draft1.asc</div>
+      <div class="ltspice-window">
+        <svg class="schematic" viewBox="0 0 640 230" xmlns="http://www.w3.org/2000/svg">
+          <!-- wires -->
+          <line x1="70" y1="110" x2="140" y2="110" stroke="#4fc3ff" stroke-width="4"/>
+          <line x1="200" y1="110" x2="280" y2="110" stroke="#4fc3ff" stroke-width="4"/>
+          <line x1="340" y1="110" x2="430" y2="110" stroke="#4fc3ff" stroke-width="4"/>
+          <line x1="500" y1="110" x2="570" y2="110" stroke="#4fc3ff" stroke-width="4"/>
+
+          <!-- voltage source -->
+          <circle cx="70" cy="110" r="22" fill="none" stroke="#7CFFB2" stroke-width="4"/>
+          <text x="54" y="145">Vjoy</text>
+          <text x="57" y="116">~</text>
+
+          <!-- resistor -->
+          <polyline points="140,110 150,95 160,125 170,95 180,125 190,95 200,110"
+                    fill="none" stroke="#7CFFB2" stroke-width="4"/>
+          <text x="148" y="85">Rlove</text>
+
+          <!-- capacitor -->
+          <line x1="280" y1="90" x2="280" y2="130" stroke="#7CFFB2" stroke-width="4"/>
+          <line x1="300" y1="90" x2="300" y2="130" stroke="#7CFFB2" stroke-width="4"/>
+          <text x="260" y="85">Cpeace</text>
+
+          <!-- wire continuation -->
+          <line x1="300" y1="110" x2="340" y2="110" stroke="#4fc3ff" stroke-width="4"/>
+
+          <!-- inductor -->
+          <path d="M430 110
+                   q10 -20 20 0
+                   q10 -20 20 0
+                   q10 -20 20 0
+                   q10 -20 20 0" 
+                fill="none" stroke="#7CFFB2" stroke-width="4"/>
+          <text x="438" y="85">Lhope</text>
+
+          <!-- output -->
+          <circle cx="570" cy="110" r="6" fill="#ffd54f"/>
+          <text x="548" y="85">V(out)</text>
+
+          <!-- ground from capacitor -->
+          <line x1="290" y1="130" x2="290" y2="170" stroke="#4fc3ff" stroke-width="4"/>
+          <line x1="270" y1="170" x2="310" y2="170" stroke="#7CFFB2" stroke-width="4"/>
+          <line x1="276" y1="178" x2="304" y2="178" stroke="#7CFFB2" stroke-width="4"/>
+          <line x1="282" y1="186" x2="298" y2="186" stroke="#7CFFB2" stroke-width="4"/>
+
+          <!-- statement -->
+          <text x="62" y="35">.tran 0 10</text>
+          <text x="62" y="55">.plot V(out)</text>
+
+          <!-- moon -->
+          <circle cx="535" cy="45" r="22" fill="#ffd54f" opacity="0.95"/>
+          <circle cx="545" cy="40" r="20" fill="#111922"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="msg-panel">
+      <div class="line1">
+        * Simulation Result:
+      </div>
+      <div class="line2">
+        Output waveform başarılı şekilde üretildi.<br>
+        <span class="highlight">Bayram sevinci = maksimum</span><br>
+        <span class="highlight">Aile bağı = güçlü bağlantı</span><br>
+        <span class="highlight">Kalp gürültüsü = minimum</span>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      Tüm sevdiklerinizle birlikte sağlıklı, huzurlu ve bol mutluluklu bir bayram geçirmeniz dileğiyle.
+    </div>
+
+    <div class="btns">
+      <button class="primary" onclick="shareMessage()">Sevdiklerinle Paylaş</button>
+      <button class="secondary" onclick="copyText()">Mesajı Kopyala</button>
+    </div>
+  </div>
+
+  <script>
+    const message =
+`Bayramınız Mübarek Olsun!
+
+Mutluluğunuz DC gibi sabit,
+neşeniz AC gibi sürekli,
+huzurunuz low-noise olsun.
+
+LTspice Simulation Result:
+Bayram sevinci = maksimum
+Aile bağı = güçlü bağlantı
+Kalp gürültüsü = minimum`;
+
+    async function shareMessage() {
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: "Elektronik Temalı Bayram Mesajı",
+            text: message
+          });
+        } catch (error) {
+          console.log("Paylaşım iptal edildi.");
+        }
+      } else {
+        alert("Bu cihazda direkt paylaşım desteklenmiyor.");
+      }
+    }
+
+    async function copyText() {
+      try {
+        await navigator.clipboard.writeText(message);
+        alert("Mesaj kopyalandı.");
+      } catch (error) {
+        alert("Kopyalama başarısız oldu.");
+      }
+    }
+  </script>
+</body>
+</html>
