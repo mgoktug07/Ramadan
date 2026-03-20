@@ -172,20 +172,10 @@
       box-shadow: 0 0 20px rgba(0, 199, 129, 0.2);
     }
 
-    .primary:hover {
-      transform: translateY(-2px);
-      background: #18d98f;
-    }
-
     .secondary {
       background: transparent;
       color: #d7fff1;
       border: 1px solid rgba(215, 255, 241, 0.22);
-    }
-
-    .secondary:hover {
-      background: rgba(255, 255, 255, 0.05);
-      transform: translateY(-2px);
     }
 
     .floating-dot {
@@ -249,54 +239,44 @@
       <div class="ltspice-titlebar">Draft1.asc</div>
       <div class="ltspice-window">
         <svg class="schematic" viewBox="0 0 640 230" xmlns="http://www.w3.org/2000/svg">
-          <!-- wires -->
           <line x1="70" y1="110" x2="140" y2="110" stroke="#4fc3ff" stroke-width="4"/>
           <line x1="200" y1="110" x2="280" y2="110" stroke="#4fc3ff" stroke-width="4"/>
           <line x1="340" y1="110" x2="430" y2="110" stroke="#4fc3ff" stroke-width="4"/>
           <line x1="500" y1="110" x2="570" y2="110" stroke="#4fc3ff" stroke-width="4"/>
 
-          <!-- voltage source -->
           <circle cx="70" cy="110" r="22" fill="none" stroke="#7CFFB2" stroke-width="4"/>
           <text x="54" y="145">Vjoy</text>
           <text x="57" y="116">~</text>
 
-          <!-- resistor -->
           <polyline points="140,110 150,95 160,125 170,95 180,125 190,95 200,110"
                     fill="none" stroke="#7CFFB2" stroke-width="4"/>
           <text x="148" y="85">Rlove</text>
 
-          <!-- capacitor -->
           <line x1="280" y1="90" x2="280" y2="130" stroke="#7CFFB2" stroke-width="4"/>
           <line x1="300" y1="90" x2="300" y2="130" stroke="#7CFFB2" stroke-width="4"/>
           <text x="260" y="85">Cpeace</text>
 
-          <!-- wire continuation -->
           <line x1="300" y1="110" x2="340" y2="110" stroke="#4fc3ff" stroke-width="4"/>
 
-          <!-- inductor -->
           <path d="M430 110
                    q10 -20 20 0
                    q10 -20 20 0
                    q10 -20 20 0
-                   q10 -20 20 0" 
+                   q10 -20 20 0"
                 fill="none" stroke="#7CFFB2" stroke-width="4"/>
           <text x="438" y="85">Lhope</text>
 
-          <!-- output -->
           <circle cx="570" cy="110" r="6" fill="#ffd54f"/>
           <text x="548" y="85">V(out)</text>
 
-          <!-- ground from capacitor -->
           <line x1="290" y1="130" x2="290" y2="170" stroke="#4fc3ff" stroke-width="4"/>
           <line x1="270" y1="170" x2="310" y2="170" stroke="#7CFFB2" stroke-width="4"/>
           <line x1="276" y1="178" x2="304" y2="178" stroke="#7CFFB2" stroke-width="4"/>
           <line x1="282" y1="186" x2="298" y2="186" stroke="#7CFFB2" stroke-width="4"/>
 
-          <!-- statement -->
           <text x="62" y="35">.tran 0 10</text>
           <text x="62" y="55">.plot V(out)</text>
 
-          <!-- moon -->
           <circle cx="535" cy="45" r="22" fill="#ffd54f" opacity="0.95"/>
           <circle cx="545" cy="40" r="20" fill="#111922"/>
         </svg>
@@ -304,9 +284,7 @@
     </div>
 
     <div class="msg-panel">
-      <div class="line1">
-        * Simulation Result:
-      </div>
+      <div class="line1">* Simulation Result:</div>
       <div class="line2">
         Output waveform başarılı şekilde üretildi.<br>
         <span class="highlight">Bayram sevinci = maksimum</span><br>
@@ -345,9 +323,7 @@ Kalp gürültüsü = minimum`;
             title: "Elektronik Temalı Bayram Mesajı",
             text: message
           });
-        } catch (error) {
-          console.log("Paylaşım iptal edildi.");
-        }
+        } catch (error) {}
       } else {
         alert("Bu cihazda direkt paylaşım desteklenmiyor.");
       }
